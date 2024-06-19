@@ -1,0 +1,2 @@
+Para loja virtuais que vendem em diversos marketplaces é essencial fazer uma boa gestão de seus anúncios, iniciando com um código único e sistemático para cada um deles. O código é gerado de acordo com o produto, quantidade e canal de venda, tornando-o totalmente "traduzível" com um dicionário de SKUs.
+Neste projeto exercitamos o uso de inputs, outputs, manipulação de strings, dicionários, while loops e listas.
