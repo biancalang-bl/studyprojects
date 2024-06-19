@@ -1,0 +1,89 @@
+from string import *
+
+# dicionários
+produtos={
+    '001' : 'Produto 1',
+    '002' : 'Produto 2',
+    '003' : 'Produto 3',
+    '004' : 'Produto 4',
+    '005' : 'Produto 5',
+    '006' : 'Produto 6',
+    '007' : 'Produto 7',
+    '008' : 'Produto 8',
+    '009' : 'Produto 9',
+    '010' : 'Produto 10'
+}
+
+canais = {
+    'mercado livre' : 'MLB',
+    'magazine luiza' : 'MGLU',
+    'leroy merlin' : 'LRM',
+    'amazon' : 'AMZ',
+    'shopee' : 'SHP'
+    }
+
+alfabeto = {
+    '0' : 'A',
+    '1' : 'B',
+    '2' : 'C',
+    '3' : 'D',
+    '4' : 'E',
+    '5' : 'F',
+    '6' : 'G',
+    '7' : 'H',
+    '8' : 'I',
+    '9' : 'J',
+    '10' : 'K',
+    '11' : 'L',
+    '12' : 'M',
+    '13' : 'N',
+    '14' : 'O',
+    '15' : 'P'
+    }
+
+# quantos produtos diferentes irão compor o anúncio
+produtos_anuncio = int(input("Quantos produtos DIFERENTES você quer que o anúncio tenha?\n   R ► "))
+
+
+# prefixo - dado pelo canal de venda
+print("\nEm qual canal este anúncio será publicado? Digite uma das opções abaixo:\n",
+      'Mercado Livre\n',
+      'Magazine Luiza\n',
+      'Leroy Merlin\n',
+      'Amazon\n',
+      'Shopee'
+      )
+canal = str(input("   R ► ")).lower()
+prefixo = canais[canal]
+
+
+# looping para criação do código dos produtos
+counter = 0
+lista_cod_sku = [prefixo]
+
+while counter < produtos_anuncio:
+  print("\n-----------------------------------------")
+
+  print(f"\nDigite o código do {counter+1}º produto desejado no anúncio:")
+  produto = str(input("   R ► "))
+  print(f"\nPRODUTO SELECIONADO ► {produtos[produto]}")
+
+  qtde_do_produto = str(input("\nQuantas unidades deste produto você quer inserir no seu anúncio?\n   R ► "))
+
+  produto_e_qtde = produto + '.' + qtde_do_produto
+  lista_cod_sku.append(produto_e_qtde)
+
+  counter = counter + 1
+
+
+# GERADOR DO CÓDIGO SKU
+
+qtde_anuncios = str(input("Dentro do canal de venda selecionado, existem quantos anúncios semelhantes a este? Digite 0 se não há nenhum anúncio semelhante neste canal.\n   R ► "))
+sufixo = alfabeto[qtde_anuncios]
+
+separador = "-"
+lista_cod_sku.append(sufixo)
+cod_sku = separador.join(lista_cod_sku)
+
+print("\n-----------------------------------------")
+print(f"\nO código SKU do seu anúncio é: {cod_sku}")
